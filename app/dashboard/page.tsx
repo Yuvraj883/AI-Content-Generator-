@@ -1,10 +1,11 @@
 import React from 'react'
+import Header from './_components/Header'
 
 function Page() {
   return (
     <div>
       <section className=''>
-          Home
+          <Header/>
       </section>
 
     </div>
