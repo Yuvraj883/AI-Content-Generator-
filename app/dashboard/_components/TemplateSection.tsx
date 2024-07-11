@@ -1,5 +1,6 @@
+"use client"
 import { Search } from 'lucide-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Templates from '@/app/(data)/Templates';
 
 import TemplateCard from './TemplateCard';
@@ -20,7 +21,23 @@ export interface FORM{
   required?:boolean
 }
 
-function TemplateSection() {
+function TemplateSection({onSearchInput, searchInput}:any) {
+  const [templateList, setTemplateList] = useState(Templates);
+  useEffect(()=>{
+    if(searchInput){
+     const filteredData = Templates.filter(item=>
+        item.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      setTemplateList(filteredData);
+      console.log(filteredData);
+      console.log(searchInput);
+
+    }
+    else{
+      setTemplateList(Templates);
+    }
+  },[searchInput]);
+
   return (
     <div>
       <section className='min-w-full flex flex-col items-center bg-gradient-to-br from-purple-500 via-pink-600 to-purple-500 p-8'>
@@ -28,12 +45,14 @@ function TemplateSection() {
         <h3 className='text-md text-white font-semibold'>What would you like to create today?</h3>
         <span className='flex items-center  bg-white rounded-sm gap-1 py-1 px-2 mt-2 w-[50%]'>
           <Search className='text-purple-600'/>
-          <input placeholder='search...' className='outline-none px-2 py-1'/>
+          <input placeholder='search...' className='outline-none px-2 py-1 w-[90%]'
+          onChange={(event)=>{onSearchInput(event.target.value)}}
+          />
         </span>
       </section>
       <section className='grid md:grid-cols-4 grid-cols-2 gap-4 p-4 '>
         {
-          Templates.map((template:TEMPLATE, index:number)=>(
+          templateList.map((template:TEMPLATE, index:number)=>(
             <div key={index}><TemplateCard {...template}/> </div>
           ))
         }
