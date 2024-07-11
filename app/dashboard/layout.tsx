@@ -1,4 +1,5 @@
-import Sidebar from "@/components/sidebar/Sidebar";
+import Sidebar from "./_components/Sidebar";
+
 
 export default function RootLayout({
   children,
@@ -9,9 +10,13 @@ export default function RootLayout({
 
     <html lang="en">
 
-      <body className="">
+      <body className="fixed">
         <Sidebar/>
-        {children}</body>
+        <div className="md:ml-[14%]">
+        {children}
+
+        </div>
+        </body>
     </html>
 
   );
