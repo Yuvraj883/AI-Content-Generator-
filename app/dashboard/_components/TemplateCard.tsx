@@ -11,7 +11,7 @@ const TemplateCard = (template:TEMPLATE) => {
   return (
     <div className='flex flex-col items-start justified-center p-4 shadow-md h-60 rounded-md '>
       <Image src={template.icon} height={80} width={80} alt="icon" />
-      <h3 className='text-md font-semibold'>{template.name}</h3>
+      <h3 className='text-lg font-semibold'>{template.name}</h3>
       <p className='line-clamp-3 font-normal'>{template.desc}</p>
     </div>
   );

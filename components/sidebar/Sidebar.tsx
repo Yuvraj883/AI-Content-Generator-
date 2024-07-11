@@ -12,29 +12,29 @@ const Menu = [
   {
     text:'Home',
     icon: HomeIcon,
-    link: '/',
+    link: '/dashboard',
 
   },
   {
     text: 'History',
     icon: History,
-    link:'/history',
+    link:'/dashboard/history',
   },
   {
     text: 'Billing',
     icon: Mail,
-    link:'/billing',
+    link:'/dashboard/billing',
   },
   {
     text: 'Settings',
     icon: Settings,
-    link:'/settings',
+    link:'/dashboard/settings',
   },
 
 ]
 
   return (
-      <div className='md:flex md:flex-col hidden md:w-[15%] fixed shadow-md h-screen'>
+      <div className='md:flex md:flex-col hidden md:w-[14%] fixed shadow-md h-screen'>
         <section className='flex flex-col justify-center items-start shadow-md p-2'>
           <Image
           className='h-12 w-auto'

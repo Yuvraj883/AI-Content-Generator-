@@ -44,8 +44,8 @@ const Menu = [
         <section className='p-2' >
             {
               Menu.map((item, index)=>(
-               <Link href={item.link} className={`flex items-center  m-2 justify-start px-2 py-6 gap-2 font-semibold text-lg cursor-pointer hover:bg-blue-500 hover:text-white
-                rounded-md ${pathName===item.link && 'bg-blue-500 text-white'}`}
+               <Link href={item.link} className={`flex items-center  m-2 justify-start px-2 py-6 gap-2 font-semibold text-lg cursor-pointer hover:bg-purple-600 hover:text-white
+                rounded-md ${pathName===item.link && 'bg-purple-600 text-white'}`}
                 key={index}>
                  <item.icon/>
                  <p>{item.text}</p>
