@@ -1,4 +1,5 @@
 import Sidebar from "./_components/Sidebar";
+import Header from './_components/Header'
 
 
 export default function RootLayout({
@@ -13,6 +14,8 @@ export default function RootLayout({
       <body className="fixed">
         <Sidebar/>
         <div className="md:ml-[14%]">
+        <Header/>
+
         {children}
 
         </div>
