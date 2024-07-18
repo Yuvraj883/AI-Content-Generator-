@@ -43,7 +43,7 @@ const Menu = [
         <section className='flex flex-col justify-center items-start shadow-md p-2'>
           <Image
           className='h-12 w-auto'
-          src='./images/logo.svg' height={100} width={100} alt="Logo"/>
+          src='/images/logo.svg' height={100} width={100} alt="Logo"/>
         </section>
 
         <section className='p-2' >
