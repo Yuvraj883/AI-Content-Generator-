@@ -35,6 +35,7 @@ const ContentGeneration: React.FC<PROPS> = ({ params }: PROPS) => {
   const [currentTemplate, setCurrentTemplate] = useState<TEMPLATE | undefined>(undefined);
   const [userInput, setUserInput] = useState<any>();
   const [loading, setLoading] = useState(false);
+  const [aiOutput, setAiOutput] = useState<string>()
 
   useEffect(() => {
     console.log('Templates:', Templates);
@@ -54,7 +55,8 @@ const ContentGeneration: React.FC<PROPS> = ({ params }: PROPS) => {
     const selectedPrompt = currentTemplate?.aiPrompt;
     const finalAIPrompt = JSON.stringify(formData)+","+selectedPrompt;
     const result = await chatSession.sendMessage(finalAIPrompt);
-    console.log("API Response: ",result?.response?.text());
+    // console.log("API Response: ",result?.response?.text());
+    setAiOutput(result?.response?.text());
     setLoading(false);
 
   }
@@ -68,7 +70,7 @@ const ContentGeneration: React.FC<PROPS> = ({ params }: PROPS) => {
          loading={loading}
 
         />
-        <OutputSection/>
+        <OutputSection aiOutput={aiOutput}/>
 
        </div>
       ) : (
