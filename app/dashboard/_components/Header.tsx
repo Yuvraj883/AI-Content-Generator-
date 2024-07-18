@@ -10,7 +10,7 @@ function Header() {
       </span>
       <span>
         <p  className='bg-purple-600 rounded-md text-md md:px-3 text-white font-semibold md:py-2 py-1 px-2'>
-          Get the membership for &#8377; 999🔥
+        🔥Get the membership for &#8377; 999/month
         </p>
       </span>
 
