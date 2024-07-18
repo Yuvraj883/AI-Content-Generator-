@@ -51,11 +51,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ onClose, onSubmit }) => {
         throw new Error(`Error: ${response.status}`);
       }
 
-      // Assuming the response contains some data you want to handle
-      // const responseData = await response.json();
-      // console.log('Response Data:', responseData);
-
-      // Simulate API request delay for demonstration purposes
+      
       setTimeout(() => {
         setIsSubmitting(false);
         setLoading(false); // Stop loading indication

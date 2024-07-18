@@ -39,7 +39,7 @@ const Offers: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mt-8">
+    <div className="flex flex-col items-center justify-center mt-8 w-[90%]">
       <div className="bg-white p-8 rounded-lg shadow-md text-center">
         <h2 className="text-2xl font-bold mb-4">
           Get your free likes now! 🚀❤️
