@@ -63,7 +63,11 @@ const ContentGeneration: React.FC<PROPS> = ({ params }: PROPS) => {
     <div>
       {currentTemplate ? (
        <div className='grid grid-cols-1 md:grid-cols-3 bg-slate-100 h-screen  '>
-        <InputSection currentTemplate={currentTemplate} userInput={(data:any)=> generateAIContent(data)} />
+        <InputSection currentTemplate={currentTemplate}
+         userInput={(data:any)=> generateAIContent(data)}
+         loading={loading}
+
+        />
         <OutputSection/>
 
        </div>

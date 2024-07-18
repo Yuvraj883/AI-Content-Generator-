@@ -2,22 +2,22 @@
 import { TEMPLATE } from '@/app/dashboard/_components/TemplateSection'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Loader2Icon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
-function InputSection({currentTemplate, userInput}:any) {
+function InputSection({currentTemplate, userInput, loading}:any) {
   const [formData, setFormData] = useState<any>();
 
   const onSubmit = (e:any)=>{
     e.preventDefault();
-    console.log(formData);
+    userInput(formData);
   }
   const handleOnChange = (e:any)=>{
     const {name, value} = e.target;
     setFormData({...formData, [name]:value});
-    userInput(formData);
+
   }
 
   return (
@@ -44,7 +44,10 @@ function InputSection({currentTemplate, userInput}:any) {
             </section>
           ))
         }
-        <button type='submit' className='w-full py-2 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-md'>Generate Content</button>
+        <button type='submit'
+        disabled={loading}
+        className='w-full py-2 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-md flex items-center justify-center'>
+          {loading?(<>Generating Content <Loader2Icon className='animate-spin'/></>):<>Generate Content</>}</button>
 
         </form>
 
