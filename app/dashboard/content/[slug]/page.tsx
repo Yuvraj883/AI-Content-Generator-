@@ -5,6 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import InputSection from './_components/InputSection';
 import OutputSection from './_components/OutputSection';
+import { chatSession } from '@/utils/AiModel';
 
 interface TEMPLATE {
   name: string;
@@ -33,25 +34,36 @@ const ContentGeneration: React.FC<PROPS> = ({ params }: PROPS) => {
   const slug = params.slug;
   const [currentTemplate, setCurrentTemplate] = useState<TEMPLATE | undefined>(undefined);
   const [userInput, setUserInput] = useState<any>();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log('Templates:', Templates);
-    // console.log('Slug:', slug);
 
     const current = Templates.find((item) => {
-      // console.log('Comparing:', item.slug.toLowerCase(), slug.toLowerCase());
       return item.slug.toLowerCase() === slug.toLowerCase();
     });
 
-    // console.log('Current Template:', current);
+
+
     setCurrentTemplate(current);
   }, [slug]);
+
+  const generateAIContent= async(formData:any)=>{
+    // console.log("Form data", formData)
+    setLoading(true);
+    const selectedPrompt = currentTemplate?.aiPrompt;
+    const finalAIPrompt = JSON.stringify(formData)+","+selectedPrompt;
+    const result = await chatSession.sendMessage(finalAIPrompt);
+    console.log("API Response: ",result?.response?.text());
+    setLoading(false);
+
+  }
 
   return (
     <div>
       {currentTemplate ? (
        <div className='grid grid-cols-1 md:grid-cols-3 bg-slate-100 h-screen  '>
-        <InputSection currentTemplate={currentTemplate} userInput={(data:any)=>setUserInput(data)} />
+        <InputSection currentTemplate={currentTemplate} userInput={(data:any)=> generateAIContent(data)} />
         <OutputSection/>
 
        </div>
