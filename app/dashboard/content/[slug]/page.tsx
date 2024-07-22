@@ -44,40 +44,40 @@ const ContentGeneration: React.FC<PROPS> = ({ params }: PROPS) => {
       return item.slug.toLowerCase() === slug.toLowerCase();
     });
 
-
-
     setCurrentTemplate(current);
   }, [slug]);
 
-  const generateAIContent= async(formData:any)=>{
-    // console.log("Form data", formData)
+  const generateAIContent = async (formData: any) => {
     setLoading(true);
     const selectedPrompt = currentTemplate?.aiPrompt;
-    const finalAIPrompt = JSON.stringify(formData)+","+selectedPrompt;
+    const finalAIPrompt = JSON.stringify(formData) + "," + selectedPrompt;
     const result = await chatSession.sendMessage(finalAIPrompt);
-    // console.log("API Response: ",result?.response?.text());
     setAiOutput(result?.response?.text());
     setLoading(false);
-
   }
 
   return (
     <div>
       {currentTemplate ? (
-       <div className='grid grid-cols-1 md:grid-cols-3 bg-slate-100 h-screen  '>
-        <InputSection currentTemplate={currentTemplate}
-         userInput={(data:any)=> generateAIContent(data)}
-         loading={loading}
-
-        />
-        <OutputSection aiOutput={aiOutput}/>
-
-       </div>
+        <div className='grid grid-cols-1 md:grid-cols-3 bg-slate-100 h-screen'>
+          <InputSection
+            currentTemplate={currentTemplate}
+            userInput={(data: any) => generateAIContent(data)}
+            loading={loading}
+          />
+          <OutputSection aiOutput={aiOutput} />
+        </div>
       ) : (
-        <p>Template not found </p>
+        <p>Template not found</p>
       )}
     </div>
   );
 };
+
+// export async function generateStaticParams() {
+//   return Templates.map(template => ({
+//     slug: template.slug.toLowerCase()
+//   }));
+// }
 
 export default ContentGeneration;
