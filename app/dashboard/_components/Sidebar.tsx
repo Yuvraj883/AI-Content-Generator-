@@ -20,16 +20,16 @@ const Menu = [
     icon: History,
     link:'/dashboard/history',
   },
-  {
-    text: 'Billing',
-    icon: Mail,
-    link:'/dashboard/billing',
-  },
-  {
-    text: 'Settings',
-    icon: Settings,
-    link:'/dashboard/settings',
-  },
+  // {
+  //   text: 'Billing',
+  //   icon: Mail,
+  //   link:'/dashboard/billing',
+  // },
+  // {
+  //   text: 'Settings',
+  //   icon: Settings,
+  //   link:'/dashboard/settings',
+  // },
   {
     text: 'Offers',
     icon: Gift,
