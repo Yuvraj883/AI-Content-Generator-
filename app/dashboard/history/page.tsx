@@ -21,7 +21,7 @@ const HistoryPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="p-8">
+    <div className="p-8 min-h-screen">
       <h1 className="text-2xl font-semibold text-center mb-6">Transaction History</h1>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200">
