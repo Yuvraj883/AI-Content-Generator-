@@ -14,12 +14,17 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
         <div className="flex flex-grow relative">
           {/* Sidebar (Always present, but toggled for mobile) */}
-          <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setSidebarOpen(false)} />
 
           {/* Main Content */}
           <div className="flex flex-col flex-grow w-full md:w-5/6 lg:w-4/5 min-h-screen">
-            <Header toggleSidebar={() => setSidebarOpen(true)} />
-            <main className="flex-grow p-4">{children}</main>
+          <Header toggleSidebar={() => setSidebarOpen(true)} />
+
+          <div className="flex flex-row ">
+          <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setSidebarOpen(false)} />
+          <main className="flex-grow p-2 w-[70vw]">{children}</main>
+
+            </div>
+
             <Footer />
           </div>
         </div>
