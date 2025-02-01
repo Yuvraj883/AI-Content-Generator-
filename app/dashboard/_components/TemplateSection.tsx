@@ -40,15 +40,16 @@ function TemplateSection({ onSearchInput, searchInput }: any) {
         {/* <h1 className='text-5xl text-[#d2e823] font-extrabold mb-2 drop-shadow-lg'>Browse All Templates</h1> */}
         <h1 className='text-2xl text-[#d2e823] font-bold mb-4 drop-shadow-md'>What would you like to create today?</h1>
         <div className='flex items-center bg-white rounded-full shadow-md gap-2 py-2 px-4 mt-2 w-[100%] transition-all duration-300 hover:shadow-lg'>
-          <Search className='text-[#254f1a] w-5 h-5' />
           <input
             placeholder='Browse All Templates'
             className='outline-none px-3 py-2 w-full text-[#254f1a] rounded-full'
             onChange={(event) => onSearchInput(event.target.value)}
           />
+          <Search className='text-[#254f1a] w-5 h-5' />
+
         </div>
       </section>
-      <section className='grid md:grid-cols-3 justify-center md:ml-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 p-6'>
+      <section className='grid md:grid-cols-3 justify-center items-center md:ml-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 p-6'>
         {templateList.map((template: TEMPLATE, index: number) => (
           <div key={index} className='transform transition duration-300 hover:scale-105'>
             <TemplateCard {...template} />
