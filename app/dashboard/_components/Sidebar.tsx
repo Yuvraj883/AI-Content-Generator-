@@ -1,5 +1,5 @@
 "use client";
-import { Gift, History, HomeIcon } from "lucide-react";
+import { Gift, HomeIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,7 +15,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
 
   const Menu = [
     { text: "Home", icon: HomeIcon, link: "/dashboard" },
-    // { text: "History", icon: History, link: "/dashboard/history" },
     { text: "Offers", icon: Gift, link: "/dashboard/offers" },
   ];
 
@@ -31,34 +30,34 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 z-50 h-full w-64 bg-white shadow-md transition-transform duration-300
-          ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:w-[14%] md:flex md:flex-col`}
+        className={`fixed top-0 left-0 z-50 h-full w-64 bg-[#ffffff] backdrop-blur-lg shadow-xl transition-all duration-300 
+          ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:w-[16%] md:flex md:flex-col`}
       >
         {/* Sidebar Header */}
-        <section className="flex flex-col justify-center items-start shadow-md p-2">
+        <section className="flex flex-col items-start ml-5 py-6 border-b border-gray-300">
           <Image
-            className="h-12 w-auto"
-            src="/images/logo.svg"
-            height={100}
-            width={100}
+            className="w-[150px] h-auto"
+            src="/images/logo.png"
+            height={120}
+            width={120}
             alt="Logo"
           />
         </section>
 
         {/* Sidebar Menu */}
-        <section className="p-2">
+        <section className="p-4">
           {Menu.map((item, index) => (
             <Link
               href={item.link}
               key={index}
-              className={`flex items-center m-2 justify-start px-2 py-6 gap-2 font-semibold text-lg cursor-pointer
-              hover:bg-purple-600 hover:text-white rounded-md ${
-                pathName === item.link && "bg-purple-600 text-white"
-              }`}
+              className={`flex items-center px-4 py-3 gap-3 my-4 font-semibold text-lg rounded-xl transition-all duration-300 
+                hover:bg-[#254f1a] hover:text-[#d2e823] hover:scale-[1.02]
+                ${pathName === item.link ? "bg-[#254f1a] text-[#d2e823] shadow-md" : "text-[#254f1a]"}`
+              }
               onClick={closeSidebar}
             >
-              <item.icon />
-              <p>{item.text}</p>
+              <item.icon className="w-6 h-6" />
+              <p className="text-sm">{item.text}</p>
             </Link>
           ))}
         </section>

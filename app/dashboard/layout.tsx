@@ -1,8 +1,8 @@
 "use client";
-import Sidebar from "./_components/Sidebar";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import { useState } from "react";
+import Sidebar from "./_components/Sidebar";
 
 export default function RootLayout({
   children,
@@ -11,21 +11,18 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body>
-        <div className="flex min-h-screen bg-[#f5f5f5]">
-          {/* Sidebar */}
-          <Sidebar
-            isOpen={isSidebarOpen}
-            closeSidebar={() => setSidebarOpen(false)}
-          />
+      <body className="min-h-screen flex flex-col">
+        <div className="flex flex-grow">
+          {/* Sidebar - Responsive */}
+          <aside className="hidden md:block md:w-1/6 lg:w-1/7  min-h-screen">
+            <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setSidebarOpen(false)} />
+          </aside>
 
-          {/* Main content container */}
-          <div className="flex flex-col flex-grow md:ml-[14%]">
+          {/* Main Content */}
+          <div className="flex flex-col flex-grow w-full md:w-3/4 lg:w-4/5 min-h-screen">
             <Header toggleSidebar={() => setSidebarOpen(true)} />
-
-            {/* Main content */}
             <main className="flex-grow p-4">{children}</main>
-            <Footer />
+            <Footer/>
           </div>
         </div>
       </body>

@@ -23,7 +23,8 @@ export default function RootLayout({
 
       <body className={inter.className}>
         {/* <Sidebar/> */}
-        {children}</body>
+        {children}
+        </body>
         <Analytics/>
     </html>
 
