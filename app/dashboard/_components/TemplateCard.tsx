@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const TemplateCard = (template: TEMPLATE) => {
   return (
-    <Link href={`dashboard/content/${template?.slug}`}>
+    // <Link href={`dashboard/content/${template?.slug}`}>
       <div className="flex flex-row items-center border border-gray-200 rounded-lg cursor-pointer bg-white hover:border-gray-300 transition-colors duration-200 ease-in-out h-[150px] overflow-hidden">
         {/* Image Section */}
         <div className="w-32 h-32 flex-shrink-0 p-2">
@@ -27,7 +27,7 @@ const TemplateCard = (template: TEMPLATE) => {
           </Link>
         </div>
       </div>
-    </Link>
+    // </Link>
   );
 };
 
