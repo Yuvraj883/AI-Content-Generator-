@@ -22,7 +22,7 @@ export default function RootLayout({
           <div className="flex flex-col flex-grow w-full md:w-3/4 lg:w-4/5 min-h-screen">
             <Header toggleSidebar={() => setSidebarOpen(true)} />
             <main className="flex-grow p-4">{children}</main>
-            <Footer className="mt-auto" />
+            <Footer/>
           </div>
         </div>
       </body>
