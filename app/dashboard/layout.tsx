@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen bg-[#f5f5f5]">
           {/* Sidebar */}
           <Sidebar
             isOpen={isSidebarOpen}
