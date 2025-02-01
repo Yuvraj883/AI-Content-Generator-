@@ -8,9 +8,19 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
+  console.log(toggleSidebar);
   return (
     <div className="flex border justify-between h-16 items-center px-2 md:px-6 md:hidden">
       {/* Mobile Menu Button */}
+      <section className="flex md:hidden flex-col h-16 justify-center items-center shadow-md p-2">
+                <Image
+                  className="h-12 w-auto"
+                  src="/images/logo.png"
+                  height={100}
+                  width={100}
+                  alt="Logo"
+                />
+              </section>
       <button
         onClick={toggleSidebar}
         className="md:hidden p-2 text-gray-700"
@@ -18,15 +28,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
       >
         <Menu size={24} />
       </button>
-        {/* <section className="flex md:hidden flex-col h-16 justify-center items-center shadow-md p-2">
-                <Image
-                  className="h-12 w-auto"
-                  src="/images/logo.svg"
-                  height={100}
-                  width={100}
-                  alt="Logo"
-                />
-              </section> */}
+
 
 
       {/* Search Bar */}
