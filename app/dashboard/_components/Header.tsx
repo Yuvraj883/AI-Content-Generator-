@@ -8,7 +8,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
-  console.log(toggleSidebar);
+  // console.log(toggleSidebar);
   return (
     <div className="flex border justify-between h-16 items-center px-2 md:px-6 md:hidden">
       {/* Mobile Menu Button */}
