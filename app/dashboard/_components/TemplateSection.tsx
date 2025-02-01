@@ -1,8 +1,7 @@
-"use client"
+"use client";
 import { Search } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import Templates from '@/app/(data)/Templates';
-
 import TemplateCard from './TemplateCard';
 
 export interface TEMPLATE {
@@ -15,49 +14,47 @@ export interface TEMPLATE {
   form?: FORM[];
 }
 export interface FORM{
-  label: string,
-  field:string,
-  name:string,
-  required?:boolean
+  label: string;
+  field: string;
+  name: string;
+  required?: boolean;
 }
 
-function TemplateSection({onSearchInput, searchInput}:any) {
+function TemplateSection({ onSearchInput, searchInput }: any) {
   const [templateList, setTemplateList] = useState(Templates);
-  useEffect(()=>{
-    if(searchInput){
-     const filteredData = Templates.filter(item=>
+
+  useEffect(() => {
+    if (searchInput) {
+      const filteredData = Templates.filter(item =>
         item.name.toLowerCase().includes(searchInput.toLowerCase())
       );
       setTemplateList(filteredData);
-      console.log(filteredData);
-      console.log(searchInput);
-
-    }
-    else{
+    } else {
       setTemplateList(Templates);
     }
-  },[searchInput]);
+  }, [searchInput]);
 
   return (
     <div>
-      <section className='min-w-full flex flex-col items-center bg-gradient-to-br from-purple-500 via-pink-600 to-purple-500 p-8'>
-        <h1 className='text-2xl text-white font-bold mb-1'>Browse All Templates</h1>
-        <h3 className='text-md text-white font-semibold'>What would you like to create today?</h3>
-        <span className='flex items-center  bg-white rounded-sm gap-1 py-1 px-2 mt-2 w-[50%]'>
-          <Search className='text-purple-600'/>
-          <input placeholder='search...' className='outline-none px-2 py-1 w-[90%]'
-          onChange={(event)=>{onSearchInput(event.target.value)}}
+      <section className='w-full flex flex-col md:ml-4 items-center justify-center bg-gradient-to-br from-[#254f1a] via-[#254f1a] to-[#254f1a] p-10 md:mt-0 rounded-b-3xl shadow-lg h-[50vh] '>
+        <h1 className='text-5xl text-[#d2e823] font-extrabold mb-2 drop-shadow-lg'>Browse All Templates</h1>
+        <h3 className='text-2xl text-[#d2e823] font-medium mb-4 drop-shadow-md'>What would you like to create today?</h3>
+        <div className='flex items-center bg-white rounded-full shadow-md gap-2 py-2 px-4 mt-2 w-[60%] transition-all duration-300 hover:shadow-lg'>
+          <Search className='text-[#254f1a] w-5 h-5' />
+          <input
+            placeholder='Search templates...'
+            className='outline-none px-3 py-2 w-full text-[#254f1a] rounded-full'
+            onChange={(event) => onSearchInput(event.target.value)}
           />
-        </span>
+        </div>
+      </section>  
+      <section className='grid md:grid-cols-3 justify-center md:ml-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 p-6'>
+        {templateList.map((template: TEMPLATE, index: number) => (
+          <div key={index} className='transform transition duration-300 hover:scale-105'>
+            <TemplateCard {...template} />
+          </div>
+        ))}
       </section>
-      <section className='grid md:grid-cols-4 grid-cols-2 gap-4 p-4 '>
-        {
-          templateList.map((template:TEMPLATE, index:number)=>(
-            <div key={index}><TemplateCard {...template}/> </div>
-          ))
-        }
-      </section>
-
     </div>
   );
 }
