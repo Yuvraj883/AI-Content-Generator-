@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#254f1a] text-[#d2e823] py-6 top-[100%]">
+    <footer className="bg-[#254f1a] hover:text-white text-[#d2e823] py-6 top-[100%]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-col justify-between items-center">
           {/* Logo or Brand Name */}
