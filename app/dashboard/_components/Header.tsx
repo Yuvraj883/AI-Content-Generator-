@@ -1,35 +1,36 @@
-"use client";
-import { Search, Menu } from "lucide-react";
-import React from "react";
-import Image from "next/image";
+'use client'
+import { Search, Menu } from 'lucide-react'
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface HeaderProps {
-  toggleSidebar: () => void;
+  toggleSidebar: () => void
 }
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   // console.log(toggleSidebar);
   return (
-    <div className="flex border justify-between h-16 items-center px-2 md:px-6 md:hidden">
+    <div className='flex border justify-between h-16 items-center px-2 md:px-6 md:hidden'>
       {/* Mobile Menu Button */}
-      <section className="flex md:hidden flex-col h-16 justify-center items-center shadow-md p-2">
-                <Image
-                  className="h-12 w-auto"
-                  src="/images/logo.png"
-                  height={100}
-                  width={100}
-                  alt="Logo"
-                />
-              </section>
+      <Link href='/dashboard'>
+        <section className='flex md:hidden flex-col h-16 justify-center items-center shadow-md p-2'>
+          <Image
+            className='h-12 w-auto cursor-pointer'
+            src='/images/logo.png'
+            height={100}
+            width={100}
+            alt='Logo'
+          />
+        </section>
+      </Link>
       <button
         onClick={toggleSidebar}
-        className="md:hidden p-2 text-gray-700"
-        aria-label="Toggle Menu"
+        className='md:hidden p-2 text-gray-700'
+        aria-label='Toggle Menu'
       >
         <Menu size={24} />
       </button>
-
-
 
       {/* Search Bar */}
       {/* <span className="flex px-3 py-2 border-2 gap-1 md:gap-2 gray-200 md:w-[30%] w-[40%] rounded-md">
@@ -44,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         </p>
       </span> */}
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
