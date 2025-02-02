@@ -49,7 +49,7 @@ const Offers: React.FC = () => {
           Don't miss out on this amazing opportunity!
         </p>
         <button
-          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-[#254f1a] text-white py-2 px-4 mt-4 rounded focus:outline-none focus:shadow-outline"
           onClick={handleOpenPopup}
         >
           Claim Now

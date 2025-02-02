@@ -104,7 +104,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ onClose, onSubmit }) => {
             </button>
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-[#254f1a] text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               disabled={isSubmitting}
             >
               {isSubmitting ? 'Please wait...' : 'Submit'}
