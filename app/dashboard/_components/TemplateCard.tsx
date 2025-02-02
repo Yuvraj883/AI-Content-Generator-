@@ -6,9 +6,9 @@ import Link from 'next/link';
 const TemplateCard = (template: TEMPLATE) => {
   return (
     // <Link href={`dashboard/content/${template?.slug}`}>
-      <div className="flex flex-row items-center border border-gray-200 rounded-lg cursor-pointer bg-white hover:border-gray-300 transition-colors duration-200 ease-in-out h-[150px] overflow-hidden">
+      <div className="flex flex-row p-2 items-center border border-gray-200 rounded-lg cursor-pointer bg-white hover:border-gray-300 transition-colors duration-200 ease-in-out h-[150px] overflow-hidden">
         {/* Image Section */}
-        <div className="w-32 h-32 flex-shrink-0 p-2">
+        <div className="w-auto h-28 flex-shrink-0 p-2">
           <Image
             src={template?.icon}
             height={100}

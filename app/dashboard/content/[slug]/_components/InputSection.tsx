@@ -24,7 +24,7 @@ function InputSection({ currentTemplate, userInput, loading }: any) {
     <div className="col-span-1 flex flex-col mt-8 h-full">
       {/* Back Button */}
       <Link href={'/dashboard'}>
-        <button className="bg-gradient-to-r from-purple-500 to-indigo-600 px-5 py-2 w-36 ml-5 mb-4 rounded-lg text-white font-semibold flex items-center gap-2 shadow-md hover:opacity-90 transition-all">
+        <button className="bg-[#254f1a] px-5 py-2 w-36 ml-5 mb-4 rounded-lg text-white font-semibold flex items-center gap-2 shadow-md hover:opacity-90 transition-all">
           <ArrowLeft size={18} /> Go Back
         </button>
       </Link>
@@ -68,7 +68,7 @@ function InputSection({ currentTemplate, userInput, loading }: any) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg flex items-center justify-center shadow-md transition-all disabled:opacity-70"
+            className="w-full py-3 bg-[#254f1a] text-white font-semibold rounded-lg flex items-center justify-center shadow-md transition-all disabled:opacity-70"
           >
             {loading ? (
               <>
@@ -85,4 +85,3 @@ function InputSection({ currentTemplate, userInput, loading }: any) {
 }
 
 export default InputSection;
- 
