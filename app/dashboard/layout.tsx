@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
             <div className="flex flex-row">
               {/* ✅ Sidebar with interactive state */}
-              <SidebarWithState />
+              <SidebarWithState/>
               <main className="flex-grow p-2 w-[70vw]">{children}</main>
             </div>
 

@@ -1,5 +1,5 @@
 "use client";
-import { Gift, HomeIcon } from "lucide-react";
+import { Gift, HomeIcon, Info, Shield, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -24,6 +24,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
   const Menu = [
     { text: "Home", icon: HomeIcon, link: "/dashboard" },
     { text: "Offers", icon: Gift, link: "/dashboard/offers" },
+    { text: "About Us", icon: Info, link: "/dashboard/about" },
+    { text: "Privacy Policy", icon: Shield, link: "/dashboard/privacy-policy" },
+    { text: "Contact Us", icon: Phone, link: "/dashboard/contact" },
   ];
 
   return (
@@ -43,15 +46,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
       >
         {/* Sidebar Header */}
         <Link href="/dashboard">
-        <section className="flex flex-col items-start ml-5 py-6 border-b border-gray-300">
-          <Image
-            className="w-[150px] h-auto cursor-pointer"
-            src="/images/logo.png"
-            height={120}
-            width={120}
-            alt="Logo"
-          />
-        </section>
+          <section className="flex flex-col items-start ml-5 py-6 border-b border-gray-300">
+            <Image
+              className="w-[150px] h-auto cursor-pointer"
+              src="/images/logo.png"
+              height={120}
+              width={120}
+              alt="Logo"
+            />
+          </section>
         </Link>
 
         {/* Sidebar Menu */}

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#254f1a] hover:text-white text-[#d2e823] py-6 top-[100%]">
+    <footer className="bg-[#254f1a]  text-[#d2e823] py-6 top-[100%]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-col justify-between items-center">
           {/* Logo or Brand Name */}
@@ -13,18 +13,18 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex space-x-4 mb-4 my-10 ">
+          <div className="flex space-x-4 mb-4 my-10 text-white ">
             <Link href="/dashboard" passHref>
-              <span className="hover:text-[#3d1f58] cursor-pointer">Home</span>
+              <span className="hover:text-[#d2e823] cursor-pointer">Home</span>
             </Link>
             <Link href="/dashboard/privacy-policy" passHref>
-              <span className="hover:text-[#3d1f58] cursor-pointer">Privacy Policy</span>
+              <span className="hover:text-[#d2e823] cursor-pointer">Privacy Policy</span>
             </Link>
             <Link href="/dashboard/about" passHref>
-              <span className="hover:text-[#3d1f58] cursor-pointer">About</span>
+              <span className="hover:text-[#d2e823] cursor-pointer">About</span>
             </Link>
             <Link href="/dashboard/contact" passHref>
-              <span className="hover:text-[#3d1f58] cursor-pointer">Contact</span>
+              <span className="hover:text-[#d2e823] cursor-pointer">Contact</span>
             </Link>
           </div>
 
