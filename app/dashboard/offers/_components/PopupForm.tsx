@@ -2,7 +2,7 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import ReactGA from 'react-ga4';
 
-const baseURL = 'https://easily-famous.onrender.com/api/v2';
+const baseURL = 'https://backend-easily-famous-8nbw.vercel.app/api/orders/create';
 
 interface PopupFormProps {
   onClose: () => void;
@@ -51,7 +51,7 @@ const PopupForm: React.FC<PopupFormProps> = ({ onClose, onSubmit }) => {
         throw new Error(`Error: ${response.status}`);
       }
 
-      
+
       setTimeout(() => {
         setIsSubmitting(false);
         setLoading(false); // Stop loading indication

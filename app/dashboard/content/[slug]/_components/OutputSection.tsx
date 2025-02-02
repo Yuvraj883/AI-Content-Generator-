@@ -33,7 +33,7 @@ function OutputSection({ aiOutput }: PROPS) {
         <h1 className="font-semibold text-lg text-gray-800">Result</h1>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-2 px-4 py-2 rounded-md bg-{#9775fa} hover:bg-[#555e2e] text-white font-semibold transition-all"
+          className="flex items-center gap-2 px-4 py-2 rounded-md  bg-[#254f1a] text-white font-semibold transition-all"
         >
           {copied ? <Check size={18} /> : <Copy size={18} />}
           {copied ? 'Copied!' : 'Copy'}
