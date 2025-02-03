@@ -1,7 +1,7 @@
 // RootLayout.tsx (Keep this as a Server Component)
 import { ReactNode } from "react";
 import HeaderWithState from "./_components/HeaderWithState";
-import SidebarWithState from "./_components/SideBarWithState";
+import SidebarWithState from "./_components/SidebarWithState";
 import Footer from "./_components/Footer";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
