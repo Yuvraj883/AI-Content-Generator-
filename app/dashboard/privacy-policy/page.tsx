@@ -1,10 +1,18 @@
-// app/privacy-policy/page.tsx
+"use client"; // Ensure client-side rendering to avoid hydration errors
+
+import { useState, useEffect } from "react";
 
 const PrivacyPolicyPage: React.FC = () => {
+  const [lastUpdated, setLastUpdated] = useState("");
+
+  useEffect(() => {
+    setLastUpdated(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-center mb-6">Privacy Policy for EasilyFamous</h1>
-      <p className="mb-4">Last Updated: 09th November, 2024</p>
+      <p className="mb-4">Last Updated: {lastUpdated}</p>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-2">Introduction</h2>
@@ -27,9 +35,7 @@ const PrivacyPolicyPage: React.FC = () => {
         </ul>
 
         <h3 className="text-xl font-semibold mt-4 mb-2">1.2 Automatically Collected Information</h3>
-        <p className="text-gray-700">
-          We also collect certain data automatically, including:
-        </p>
+        <p className="text-gray-700">We also collect certain data automatically, including:</p>
         <ul className="list-disc pl-6 text-gray-700">
           <li>IP address</li>
           <li>Browser type and version</li>
@@ -40,9 +46,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-2">2. How We Use Your Information</h2>
-        <p className="text-gray-700">
-          We use your data to:
-        </p>
+        <p className="text-gray-700">We use your data to:</p>
         <ul className="list-disc pl-6 text-gray-700">
           <li>Generate AI-powered content tailored to your needs</li>
           <li>Provide "Offers" such as likes and promotional features</li>
@@ -60,8 +64,18 @@ const PrivacyPolicyPage: React.FC = () => {
         <h3 className="text-xl font-semibold mt-4 mb-2">How Google Uses Cookies:</h3>
         <ul className="list-disc pl-6 text-gray-700">
           <li>Google uses cookies (such as the <strong>DoubleClick cookie</strong>) to serve ads based on previous visits to this or other websites.</li>
-          <li>Users may opt-out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" className="text-blue-600">Google’s Ads Settings</a>.</li>
-          <li>For more details, check <a href="https://policies.google.com/technologies/ads" className="text-blue-600">Google’s Privacy & Terms</a>.</li>
+          <li>
+            Users may opt-out of personalized advertising by visiting{" "}
+            <a href="https://www.google.com/settings/ads" className="text-blue-600">
+              Google’s Ads Settings
+            </a>.
+          </li>
+          <li>
+            For more details, check{" "}
+            <a href="https://policies.google.com/technologies/ads" className="text-blue-600">
+              Google’s Privacy & Terms
+            </a>.
+          </li>
         </ul>
       </section>
 
@@ -81,15 +95,16 @@ const PrivacyPolicyPage: React.FC = () => {
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-2">6. Changes to This Privacy Policy</h2>
-        <p className="text-gray-700">
-          We may update this Privacy Policy periodically. Please check this page for updates.
-        </p>
+        <p className="text-gray-700">We may update this Privacy Policy periodically. Please check this page for updates.</p>
       </section>
 
       <section>
         <h2 className="text-2xl font-semibold mb-2">7. Contact Us</h2>
         <p className="text-gray-700">
-          If you have any questions, contact us at <a href="mailto:im.thegod883@gmail.com" className="text-blue-600">im.thegod883@gmail.com</a>.
+          If you have any questions, contact us at{" "}
+          <a href="mailto:im.thegod883@gmail.com" className="text-blue-600">
+            im.thegod883@gmail.com
+          </a>.
         </p>
       </section>
     </div>
