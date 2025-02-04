@@ -1,10 +1,10 @@
-// _components/HeaderWithState.tsx
 "use client";
-import { useState } from "react";
 import Header from "./Header";
 
-export default function HeaderWithState() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+interface HeaderWithStateProps {
+  toggleSidebar: () => void;
+}
 
-  return <Header toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />;
+export default function HeaderWithState({ toggleSidebar }: HeaderWithStateProps) {
+  return <Header toggleSidebar={toggleSidebar} />;
 }

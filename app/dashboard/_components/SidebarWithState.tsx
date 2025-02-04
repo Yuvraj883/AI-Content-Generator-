@@ -1,10 +1,11 @@
-// _components/SidebarWithState.tsx
 "use client";
-import { useState } from "react";
 import Sidebar from "./Sidebar";
 
-export default function SidebarWithState() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+interface SidebarWithStateProps {
+  isOpen: boolean;
+  closeSidebar: () => void;
+}
 
-  return <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setSidebarOpen(false)} />;
+export default function SidebarWithState({ isOpen, closeSidebar }: SidebarWithStateProps) {
+  return <Sidebar isOpen={isOpen} closeSidebar={closeSidebar} />;
 }

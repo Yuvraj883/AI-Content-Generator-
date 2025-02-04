@@ -26,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
     { text: "Offers", icon: Gift, link: "/dashboard/offers" },
     { text: "About Us", icon: Info, link: "/dashboard/about" },
     { text: "Privacy Policy", icon: Shield, link: "/dashboard/privacy-policy" },
-    // { text: "Contact Us", icon: Phone, link: "/dashboard/contact" },
+    { text: "Contact Us", icon: Phone, link: "/dashboard/contact" },
   ];
 
   return (
