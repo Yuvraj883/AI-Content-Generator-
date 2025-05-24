@@ -1,41 +1,44 @@
-"use client";
-import { createContext, useState, useEffect, ReactNode } from "react";
-import { signIn, signOut, getToken, isAuthenticated } from "./authService";
+'use client'
+import { createContext, useState, useEffect, ReactNode } from 'react'
+import { signIn, signOut, getToken, isAuthenticated } from './authService'
 
 type AuthContextType = {
-  user: any;
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-  isLoggedIn: boolean;
-};
+  user: any
+  login: (email: string, password: string) => Promise<void>
+  logout: () => void
+  isLoggedIn: boolean
+}
 
-export const AuthContext = createContext<AuthContextType | null>(null);
+// Define and export AuthContext first
+const AuthContext = createContext<AuthContextType | null>(null)
+export { AuthContext }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<any>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated());
+  const [user, setUser] = useState<any>(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated())
 
   useEffect(() => {
     if (isAuthenticated()) {
-      setUser({ token: getToken() }); // You may fetch user details from API here
+      setUser({ token: getToken() }) // You may fetch user details from API here
     }
-  }, []);
+  }, [])
 
   async function login(email: string, password: string) {
-    await signIn(email, password);
-    setUser({ token: getToken() });
-    setIsLoggedIn(true);
+    await signIn(email, password)
+    setUser({ token: getToken() })
+    setIsLoggedIn(true)
   }
 
   function logout() {
-    signOut();
-    setUser(null);
-    setIsLoggedIn(false);
+    signOut()
+    setUser(null)
+    setIsLoggedIn(false)
   }
 
   return (
+    // Use the exported AuthContext
     <AuthContext.Provider value={{ user, login, logout, isLoggedIn }}>
       {children}
     </AuthContext.Provider>
-  );
+  )
 }
