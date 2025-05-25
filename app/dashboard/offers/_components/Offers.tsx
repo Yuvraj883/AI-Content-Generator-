@@ -5,7 +5,7 @@ import ReactGA from 'react-ga4'
 import OrderProcessingMessage from './OrderProcessingMessage'
 import PopupForm from './PopupForm'
 
-const baseURL = `http://localhost:8000/api/orders/create`
+const baseURL = `https://backend-easily-famous.vercel.app/getInstaLikes`
 
 const Offers: React.FC = () => {
   useEffect(() => {
@@ -48,8 +48,15 @@ const Offers: React.FC = () => {
         },
         body: JSON.stringify({ link: profileUrl }),
       })
+      if (response.status === 429) {
+        setError(
+          'You have already used the offer. Please come back after 6 hours.'
+        )
+        setIsSubmitting(false)
+        return
+      }
       if (!response.ok) {
-        setError('Please try again after 6 hours.')
+        setError('An error occurred. Please try again.')
         setIsSubmitting(false)
         return
       }
