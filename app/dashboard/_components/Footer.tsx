@@ -12,6 +12,14 @@ const Footer: React.FC = () => {
     })
   }
 
+  const handleSocialIconClick = (platform: string) => {
+    ReactGA.event({
+      category: 'Social Media',
+      action: 'Clicked Footer Social Icon',
+      label: platform,
+    })
+  }
+
   return (
     <footer className='w-full bg-gradient-to-tl from-[#254f1a] via-[#3a7d2c] to-[#6b8e23] text-[#d2e823] py-6 mt-8'>
       <div className='max-w-5xl mx-auto px-4 flex flex-col items-center justify-center text-center'>
@@ -65,6 +73,7 @@ const Footer: React.FC = () => {
             target='_blank'
             rel='noopener noreferrer'
             aria-label='Twitter'
+            onClick={() => handleSocialIconClick('Twitter')}
           >
             <svg
               className='w-5 h-5 text-[#d2e823] hover:text-white transition-colors'
@@ -80,6 +89,7 @@ const Footer: React.FC = () => {
             target='_blank'
             rel='noopener noreferrer'
             aria-label='Facebook'
+            onClick={() => handleSocialIconClick('Facebook')}
           >
             <svg
               className='w-5 h-5 text-[#d2e823] hover:text-white transition-colors'
@@ -95,6 +105,7 @@ const Footer: React.FC = () => {
             target='_blank'
             rel='noopener noreferrer'
             aria-label='Instagram'
+            onClick={() => handleSocialIconClick('Instagram')}
           >
             <svg
               className='w-5 h-5 text-[#d2e823] hover:text-white transition-colors'
