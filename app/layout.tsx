@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'One stop solution to all your generative AI and creative needs.',
   icons: {
-    icon: '/logo.png', // ✅ Use absolute path (Next.js serves from /public)
+    icon: '/images/logo2.png', // ✅ Use absolute path (Next.js serves from /public)
   },
 }
 

@@ -11,15 +11,15 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
   // console.log(toggleSidebar);
   return (
-    <div className='flex border justify-between h-16 items-center px-2 md:px-6 md:hidden'>
+    <div className='flex border justify-between h-16 items-center px-2 md:px-6 md:hidden bg-gradient-to-br from-[#d2e823] via-[#f3f3f1] to-[#254f1a]'>
       {/* Mobile Menu Button */}
       <Link href='/dashboard'>
-        <section className='flex md:hidden flex-col h-16 justify-center items-center shadow-md p-2'>
+        <section className='flex md:hidden flex-col h-16 justify-center items-center p-2'>
           <Image
-            className='h-12 w-auto cursor-pointer'
-            src='/images/logo.png'
-            height={100}
-            width={100}
+            className='h-20 w-auto cursor-pointer'
+            src='/images/logo2.png'
+            height={150}
+            width={150}
             alt='Logo'
           />
         </section>

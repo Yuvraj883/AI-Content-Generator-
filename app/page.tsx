@@ -18,9 +18,9 @@ export default function Home() {
         <Image
           src='/images/logo2.png'
           alt='EasilyFamous Logo'
-          width={80}
-          height={80}
-          className='mb-4 rounded-lg bg-white p-2 shadow-lg'
+          width={240}
+          height={240}
+          className='mb-4 rounded-lg p-2'
         />
         <h1 className='text-4xl md:text-5xl font-extrabold text-[#254f1a] text-center mb-2 drop-shadow-lg'>
           EasilyFamous
