@@ -16,7 +16,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className='flex flex-col items-center mb-12 animate-fade-in'>
         <Image
-          src='/images/logo.png'
+          src='/images/logo2.png'
           alt='EasilyFamous Logo'
           width={80}
           height={80}
