@@ -58,12 +58,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
       >
         {/* Sidebar Header */}
         <Link href='/dashboard'>
-          <section className='flex flex-col items-start ml-5 py-8 border-b border-gray-200/30'>
+          <section className='flex flex-col items-start ml-5 py-4 border-b border-gray-200/30'>
             <Image
-              className='w-[150px] h-auto cursor-pointer drop-shadow-lg'
-              src='/images/logo.png'
-              height={120}
-              width={120}
+              className='w-[180px] h-auto cursor-pointer drop-shadow-lg'
+              src='/images/logo2.png'
+              height={150}
+              width={180}
               alt='Logo'
             />
           </section>

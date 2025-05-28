@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onSearchInput, searchInput }: HeroSectionProps) => {
   return (
-    <section className='w-full flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-br from-[#d2e823] via-[#f3f3f1] to-[#254f1a] px-6 py-12 md:py-20 rounded-3xl shadow-xl mb-8 mt-4 transition-all duration-300'>
+    <section className='w-full flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-br from-[#d2e823] via-[#f3f3f1] to-[#254f1a] px-6 py-12 md:py-20 rounded-3xl shadow-xl mb-8 mt-2 transition-all duration-300'>
       <div className='flex-1 flex flex-col items-start justify-center text-left md:pr-12'>
         <h1 className='text-4xl md:text-5xl font-extrabold text-[#254f1a] mb-4 drop-shadow-lg leading-tight'>
           Unleash Creativity with{' '}
@@ -37,11 +37,11 @@ const HeroSection = ({ onSearchInput, searchInput }: HeroSectionProps) => {
       </div>
       <div className='flex-1 flex items-center justify-center mb-8 md:mb-0'>
         <Image
-          src='/images/logo.png'
+          src='/images/logo2.png'
           alt='AI Content Generator Illustration'
-          width={320}
-          height={320}
-          className='w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-2xl animate-float'
+          width={400}
+          height={400}
+          className='w-80 h-80 md:w-96 md:h-96 object-contain drop-shadow-2xl animate-float'
           priority
         />
       </div>
