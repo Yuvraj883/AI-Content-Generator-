@@ -53,20 +53,39 @@ const Offers: React.FC = () => {
           'You have already used the offer. Please come back after 6 hours.'
         )
         setIsSubmitting(false)
+        ReactGA.event({
+          category: 'Offer Claimed',
+          action: 'Offer Submission Failed - Rate Limited',
+          label: 'Rate Limited (429)',
+        })
         return
       }
       if (!response.ok) {
         setError('An error occurred. Please try again.')
         setIsSubmitting(false)
+        ReactGA.event({
+          category: 'Offer Claimed',
+          action: 'Offer Submission Failed - HTTP Error',
+          label: `HTTP Status: ${response.status}`,
+        })
         return
       }
       // Success: show processing popup
       setIsProcessing(true)
       setIsPopupOpen(false)
       setIsSubmitting(false)
+      ReactGA.event({
+        category: 'Offer Claimed',
+        action: 'Offer Submission Successful',
+      })
     } catch (error: any) {
       setError('Please try again after 6 hours.')
       setIsSubmitting(false)
+      ReactGA.event({
+        category: 'Offer Claimed',
+        action: 'Offer Submission Failed - Network Error',
+        label: error.message,
+      })
     }
   }
 

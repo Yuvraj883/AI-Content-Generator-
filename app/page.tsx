@@ -1,8 +1,16 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import ReactGA from 'react-ga4'
 
 export default function Home() {
+  const handleGoToDashboardClick = () => {
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'Clicked Go to Dashboard Button',
+    })
+  }
+
   return (
     <div className='min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-[#f3f3f1] via-[#d2e823]/20 to-[#254f1a]/10 py-12 px-2'>
       {/* Hero Section */}
@@ -25,6 +33,7 @@ export default function Home() {
         <Link
           href='/dashboard'
           className='inline-block bg-[#254f1a] text-[#d2e823] font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-200 text-lg hover:scale-105 hover:bg-[#3a7d2c] focus:outline-none focus:shadow-outline'
+          onClick={handleGoToDashboardClick}
         >
           Go to Dashboard
         </Link>

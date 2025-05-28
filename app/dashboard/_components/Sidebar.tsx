@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
+import ReactGA from 'react-ga4'
 
 interface SidebarProps {
   isOpen: boolean
@@ -28,6 +29,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
     { text: 'Privacy Policy', icon: Shield, link: '/dashboard/privacy-policy' },
     { text: 'Contact Us', icon: Phone, link: '/dashboard/contact' },
   ]
+
+  const handleSidebarLinkClick = (linkText: string) => {
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'Clicked Sidebar Link',
+      label: linkText,
+    })
+    closeSidebar() // Close sidebar on link click
+  }
 
   return (
     <>
@@ -74,7 +84,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
                       ? 'bg-white/90 text-[#254f1a] shadow-xl scale-[1.04]'
                       : 'text-white/90 hover:bg-white/10 hover:scale-[1.02]'
                   }`}
-                onClick={closeSidebar}
+                onClick={() => handleSidebarLinkClick(item.text)}
                 style={{
                   fontWeight: isActive ? 700 : 500,
                 }}

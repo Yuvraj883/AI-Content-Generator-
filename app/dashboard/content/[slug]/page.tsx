@@ -5,6 +5,7 @@ import React from 'react'
 import InputSection from './_components/InputSection'
 import OutputSection from './_components/OutputSection'
 import { chatSession } from '@/utils/AiModel'
+import ReactGA from 'react-ga4'
 
 interface TEMPLATE {
   name: string
@@ -48,8 +49,33 @@ const ContentGeneration: React.FC<PROPS> = ({ params }) => {
     setLoading(true)
     const selectedPrompt = currentTemplate?.aiPrompt
     const finalAIPrompt = JSON.stringify(formData) + ',' + selectedPrompt
-    const result = await chatSession.sendMessage(finalAIPrompt)
-    setAiOutput(result?.response?.text())
+
+    ReactGA.event({
+      category: 'Content Generation',
+      action: 'Generate Content Button Click',
+      label: currentTemplate?.name || 'Unknown Template',
+    })
+
+    try {
+      const result = await chatSession.sendMessage(finalAIPrompt)
+      setAiOutput(result?.response?.text())
+
+      ReactGA.event({
+        category: 'Content Generation',
+        action: 'Content Generated Successfully',
+        label: currentTemplate?.name || 'Unknown Template',
+      })
+    } catch (error) {
+      console.error('Error generating content:', error)
+      ReactGA.event({
+        category: 'Content Generation',
+        action: 'Content Generation Failed',
+        label: currentTemplate?.name || 'Unknown Template',
+        value: 1, // Indicate a failure
+      })
+      // Optionally set an error state for the user
+    }
+
     setLoading(false)
   }
 

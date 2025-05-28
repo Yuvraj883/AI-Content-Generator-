@@ -1,8 +1,17 @@
 // components/Footer.tsx
 import React from 'react'
 import Link from 'next/link'
+import ReactGA from 'react-ga4'
 
 const Footer: React.FC = () => {
+  const handleLinkClick = (linkText: string) => {
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'Clicked Footer Link',
+      label: linkText,
+    })
+  }
+
   return (
     <footer className='w-full bg-gradient-to-tl from-[#254f1a] via-[#3a7d2c] to-[#6b8e23] text-[#d2e823] py-6 mt-8'>
       <div className='max-w-5xl mx-auto px-4 flex flex-col items-center justify-center text-center'>
@@ -16,22 +25,34 @@ const Footer: React.FC = () => {
         {/* Navigation Links */}
         <div className='flex flex-wrap justify-center space-x-4 mb-4 my-6 text-white'>
           <Link href='/dashboard' passHref>
-            <span className='hover:text-[#d2e823] cursor-pointer transition-colors'>
+            <span
+              className='hover:text-[#d2e823] cursor-pointer transition-colors'
+              onClick={() => handleLinkClick('Home')}
+            >
               Home
             </span>
           </Link>
           <Link href='/dashboard/privacy-policy' passHref>
-            <span className='hover:text-[#d2e823] cursor-pointer transition-colors'>
+            <span
+              className='hover:text-[#d2e823] cursor-pointer transition-colors'
+              onClick={() => handleLinkClick('Privacy Policy')}
+            >
               Privacy Policy
             </span>
           </Link>
           <Link href='/dashboard/about' passHref>
-            <span className='hover:text-[#d2e823] cursor-pointer transition-colors'>
+            <span
+              className='hover:text-[#d2e823] cursor-pointer transition-colors'
+              onClick={() => handleLinkClick('About')}
+            >
               About
             </span>
           </Link>
           <Link href='/dashboard/contact' passHref>
-            <span className='hover:text-[#d2e823] cursor-pointer transition-colors'>
+            <span
+              className='hover:text-[#d2e823] cursor-pointer transition-colors'
+              onClick={() => handleLinkClick('Contact')}
+            >
               Contact
             </span>
           </Link>
